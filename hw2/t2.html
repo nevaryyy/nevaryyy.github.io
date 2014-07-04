@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>进阶练习2</title>
+<script src="t2.js">
+</script>
+<style type="text/css">
+ .center{
+	 width:1024px;
+	 margin:0 auto;
+ }
+ table{
+	 vertical-align:middle;
+ }
+ table tr{
+	 height:50px;
+ }
+ table td{
+	 width:300px;
+ }
+</style>
+<script type="text/javascript">
+ function searchFor(){
+	var info=new Array();
+	
+	for (var i=1;i<=5;i++){
+		var person=new Object();
+		person.name=document.getElementById("name"+i).value;
+		person.age=parseInt(document.getElementById("age"+i).value);
+		person.hometown=document.getElementById("hometown"+i).value;
+		info.push(person);
+	}
+	var person=new Object();
+	var key;
+	
+	person.name=document.getElementById("name_s").value;
+	person.age=document.getElementById("age_s").value;
+	person.hometown=document.getElementById("hometown_s").value;
+	if ((person.age==null||person.age=="")&&(person.hometown==null||person.hometown==""))
+		key=person.name;
+	else if ((person.name==null||person.name=="")&&(person.hometown==null||person.hometown==""))
+		key=parseInt(person.age);
+	else{
+		key=new Object();
+		key.age=parseInt(person.age);
+		key.name=person.name;
+	}
+//	alert(key+" "+typeof key);
+	var res=search(info,key);
+	var ans;
+	if (res==false)
+		ans="未找到";
+	else
+		if ('name' in res){
+			ans=res.name+" "+res.age+" "+res.hometown;
+		}
+		else{
+			for (var i in res){
+				ans=res[i].name+" "+res[i].age+" "+res[i].hometown+"\r\n";
+			}
+		}
+	alert(ans);
+ }
+</script>
+</head>
+
+<body>
+ <form>
+  <table class="center">
+   <tr>
+    <td>姓名</td>
+    <td>年龄</td>
+    <td>家乡</td>
+   </tr>
+   <tr>
+    <td>
+     <input type="text" id="name1" value="张三">
+    </td>
+    <td>
+     <input type="text" id="age1" value="15">
+    </td>
+    <td>
+     <input type="text" id="hometown1" value="北京">
+    </td>    
+   </tr>
+   <tr>
+    <td>
+     <input type="text" id="name2" value="李四">
+    </td>
+    <td>
+     <input type="text" id="age2" value="20">
+    </td>
+    <td>
+     <input type="text" id="hometown2" value="上海">
+    </td>    
+   </tr>
+   <tr>
+    <td>
+     <input type="text" id="name3" value="王麻子">
+    </td>
+    <td>
+     <input type="text" id="age3" value="25">
+    </td>
+    <td>
+     <input type="text" id="hometown3" value="重庆">
+    </td>    
+   </tr>
+   <tr>
+    <td>
+     <input type="text" id="name4" value="周二">
+    </td>
+    <td>
+     <input type="text" id="age4" value="19">
+    </td>
+    <td>
+     <input type="text" id="hometown4" value="天津">
+    </td>    
+   </tr>
+   <tr>
+    <td>
+     <input type="text" id="name5" value="孙子">
+    </td>
+    <td>
+     <input type="text" id="age5" value="7">
+    </td>
+    <td>
+     <input type="text" id="hometown5" value="不知道">
+    </td>    
+   </tr>
+   <tr>
+    <td>
+    搜索  <input type="text" id="name_s" value="张三">
+    </td>
+    <td>
+     <input type="text" id="age_s" value="15">
+    </td>
+    <td>
+     <input type="text" id="hometown_s" value="北京">
+    </td>    
+    <td>
+     <button id="button" onClick="searchFor()">查找</button>
+    </td>
+   </tr>
+  </table>
+ </form>
+</body>
+</html>

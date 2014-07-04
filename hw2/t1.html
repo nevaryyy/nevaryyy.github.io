@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>进阶练习1</title>
+<script src="t1.js">
+</script>
+<script type="text/javascript">
+ function test(){
+	var myId=document.getElementById("myId").value;
+	var stats=new Object();
+	stats.A1=document.getElementById("s0").value;
+	stats.B2=document.getElementById("s1").value;
+	stats.C1=document.getElementById("s2").value;
+	stats.D2=document.getElementById("s3").value;
+	stats.E1=document.getElementById("s4").value;
+	stats.F2=document.getElementById("s5").value;
+	stats.G1=document.getElementById("s6").value;
+	stats.H2=document.getElementById("s7").value;
+	stats.B1=document.getElementById("s8").value;
+	stats.A2=document.getElementById("s9").value;
+	stats.D1=document.getElementById("s10").value;
+	stats.C2=document.getElementById("s11").value;
+	stats.F1=document.getElementById("s12").value;
+	stats.E2=document.getElementById("s13").value;
+	stats.H1=document.getElementById("s14").value;
+	stats.G2=document.getElementById("s15").value;
+	
+	var ans=forecast(stats,myId);
+	document.getElementById("ans").value=ans;
+ }
+</script>
+<style type="text/css">
+ .center{
+	 width:1024px;
+	 margin:0 auto;
+ }
+ table{
+	 vertical-align:middle;
+ }
+ table tr{
+	 height:100px;
+ }
+ table td{
+	 width:500px;
+ }
+</style>
+</head>
+
+<body>
+ <form>
+  <table class="center">
+   <tr>
+    <td>
+     A1<input type="text" id="s0" value="100">
+    </td>
+    <td>
+     B1<input type="text" id="s8" value="100">
+    </td>
+   </tr>
+   <tr>
+    <td>
+     B2<input type="text" id="s1" value="100">
+    </td>
+    <td>
+     A2<input type="text" id="s9" value="100">
+    </td>
+   </tr>
+   <tr>
+    <td>
+     C1<input type="text" id="s2" value="100">
+    </td>
+    <td>
+     D1<input type="text" id="s10" value="100">
+    </td>
+   </tr>
+   <tr>
+    <td>
+     D2<input type="text" id="s3" value="100">
+    </td>
+    <td>
+     C2<input type="text" id="s11" value="100">
+    </td>
+   </tr>
+   <tr>
+    <td>
+     E1<input type="text" id="s4" value="100">
+    </td>
+    <td>
+     F1<input type="text" id="s12" value="100">
+    </td>
+   </tr>
+   <tr>
+    <td>
+     F2<input type="text" id="s5" value="100">
+    </td>
+    <td>
+     E2<input type="text" id="s13" value="100">
+    </td>
+   </tr>
+   <tr>
+    <td>
+     G1<input type="text" id="s6" value="100">
+    </td>
+    <td>
+     H1<input type="text" id="s14" value="100">
+    </td>
+   </tr>
+   <tr>
+    <td>
+     H2<input type="text" id="s7" value="100">
+    </td>
+    <td>
+     G2<input type="text" id="s15" value="100">
+    </td>
+   </tr>
+   <tr>
+    <td>
+     编号<input type="text" id="myId" value="A1">
+    </td>
+    <td>
+     <button type="button" onClick="test()">该编号的球队夺冠概率</button>
+     <textarea id="ans"></textarea>
+    </td>
+   </tr>
+  </table>
+ </form>
+</body>
+</html>
