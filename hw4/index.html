@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>图片新闻</title>
+<script type="text/javascript" src="myjs.js"></script>
+<script type="text/javascript" src="data.js"></script>
+<style type="text/css">
+ body{
+	 background-attachment:fixed;
+ }
+ a{
+	 text-decoration:none;
+ }
+ a:hover{
+	 text-decoration:underline;
+ }
+ .username{
+	 font-size:13px;
+	 float:left;
+	 color:#C30;
+ }
+ .dateFont{
+	 font-size:13px;
+ }
+ .commentFont{
+	 font-size:18px;
+ }
+</style>
+</head>
+<body onLoad="init()" background="res/background.jpg">
+<div>
+<div style="position:relative; margin:0 auto; width:1024px; height:700px;">
+ <div id="imgArea" style="position:absolute; width:1000px; height:500px; left:0px; top:50px;">
+  <div style="position:absolute; height:500px;">
+   <a href="" target="_blank">
+    <img id="img0" src="" style="display:inline;" width="1000" height="500">
+   </a>
+  </div>
+ </div>
+ <div id="leftJ" style="position:absolute; left:0px; top:260px; height:80px; width:35px; background-image:url(res/leftJ.jpg); display:none; opacity:0.7;"></div>
+ <div id="rightJ" style="position:absolute; left:965px; top:260px; height:80px; width:35px; background-image:url(res/rightJ.jpg); display:none; opacity:0.7;"></div>
+ <div id="textArea" style="position:absolute; width:1000px; height:100px; left:0px; top:575px;">
+  <div style="position:absolute; height:100px;">
+   <p id="text0" style="font-size:30px; font-family:'微软雅黑'; display:inline;"></p>
+  </div>
+ </div>
+</div>
+<div style="position:relative; margin:0px auto; width:1024px;">
+ <div>
+  <textarea id="userComment" style="width:1024px; height:150px; font-size:18px;"></textarea>
+  <button onClick="comment()" style="margin:20px 0px; float:right; font-size:15px; font-family:'微软雅黑'; width:100px; height:35px;">发表评论</button>
+ </div>
+ <div style="margin-top:80px; height:1px; background-color:black;"></div>
+ <div style="margin-top:20px;">
+  <span id="pageIndex" style="font-family:'黑体'; float:left;">第1页</span>
+  <span style="float:right;">
+   <a onClick="pageup()" style="font-family:'黑体'">上一页</a>
+   &nbsp;&nbsp;
+   <a onClick="pagedown()" style="font-family:'黑体'">下一页</a>
+   &nbsp;&nbsp;
+  </span>
+ </div>
+ <div id="commentArea" style="margin-top:60px;">
+  <div id="comment1" style="border:1px solid #333; padding:10px 20px;">
+   <p id="comment_user1" class="username"></p>
+   <p align="right" class="dateFont">2014年7月11日19:08</p>
+   <p id="comment_content1" class="commentFont"></p>
+  </div>
+  <div id="comment2" style="border:1px solid #333; padding:10px 20px;">
+   <p id="comment_user2" class="username"></p>
+   <p align="right" class="dateFont">2014年7月11日19:08</p>
+   <p id="comment_content2" class="commentFont"></p>
+  </div>
+  <div id="comment3" style="border:1px solid #333; padding:10px 20px;">
+   <p id="comment_user3" class="username"></p>
+   <p align="right" class="dateFont">2014年7月11日19:08</p>
+   <p id="comment_content3" class="commentFont"></p>
+  </div>
+  <div id="comment4" style="border:1px solid #333; padding:10px 20px;">
+   <p id="comment_user4" class="username"></p>
+   <p align="right" class="dateFont">2014年7月11日19:08</p>
+   <p id="comment_content4" class="commentFont"></p>
+  </div>
+  <div id="comment5" style="border:1px solid #333; padding:10px 20px;">
+   <p id="comment_user5" class="username"></p>
+   <p align="right" class="dateFont">2014年7月11日19:08</p>
+   <p id="comment_content5" class="commentFont"></p>
+  </div>
+  <div id="comment6" style="border:1px solid #333; padding:10px 20px;">
+   <p id="comment_user6" class="username"></p>
+   <p align="right" class="dateFont">2014年7月11日19:08</p>
+   <p id="comment_content6" class="commentFont"></p>
+  </div>
+  <div id="comment7" style="border:1px solid #333; padding:10px 20px;">
+   <p id="comment_user7" class="username"></p>
+   <p align="right" class="dateFont">2014年7月11日19:08</p>
+   <p id="comment_content7" class="commentFont"></p>
+  </div>
+  <div id="comment8" style="border:1px solid #333; padding:10px 20px;">
+   <p id="comment_user8" class="username"></p>
+   <p align="right" class="dateFont">2014年7月11日19:08</p>
+   <p id="comment_content8" class="commentFont"></p>
+  </div>
+  <div id="comment9" style="border:1px solid #333; padding:10px 20px;">
+   <p id="comment_user9" class="username"></p>
+   <p align="right" class="dateFont">2014年7月11日19:08</p>
+   <p id="comment_content9" class="commentFont"></p>
+  </div>
+  <div id="comment10" style="border:1px solid #333; padding:10px 20px;">
+   <p id="comment_user10" class="username"></p>
+   <p align="right" class="dateFont">2014年7月11日19:08</p>
+   <p id="comment_content10" class="commentFont"></p>
+  </div>
+ </div>
+ <div style="margin-top:20px;">
+  <span id="pageIndex_1" style="font-family:'黑体'; float:left;">第1页</span>
+  <span style="float:right;">
+   <a onClick="pageup()" style="font-family:'黑体'">上一页</a>
+   &nbsp;&nbsp;
+   <a onClick="pagedown()" style="font-family:'黑体'">下一页</a>
+   &nbsp;&nbsp;
+  </span>
+ </div>
+ <div style="margin:60px 0; height:1px; background-color:black;"></div>
+ <div style="margin:50px 0;">
+    <center>
+    <p style="font-size:18px; font-family:'黑体'">
+     <a href="javascript:scroll(0,0)">返回顶部</a>
+    </p>
+    </center>
+  </div>
+</div>
+</div>
+</body>
+</html>
